@@ -1,0 +1,35 @@
+<!-- indexer::stop -->
+<!DOCTYPE html>
+<div class="modal__overlay promo promo-ad" tabindex="-1" data-micromodal-close="">
+	<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+        
+		<header class="modal__header">
+			<div class="modal-header-wrapper>
+				<button class="modal__btn close" data-micromodal-close="" aria-label="Close this dialog window">
+					X
+				</button>
+			</div>
+        </header>
+        
+        <div class="modal__content" id="modal-1-content">
+			<div class="modal-content-wrapper">
+				<h2 class="modal__title" id="modal-1-title">
+					Headline Text							<!-- if ..[FELD "promoTitle"] -->
+				</h2>
+				<div>
+					... bodytext.						<!-- if ..[FELD "promoDescription"] -->	
+				</div>	
+			</div>
+		</div>
+		
+		<div class="modal__footer">
+			<div class="modal-footer-wrapper">
+				<a class="button0 button1"> 
+					button label				<!-- if ..[FELD "promoButton"] -->	
+				</a>
+			</div>			
+		</div>    
+	</div>
+</div>
+<!-- indexer::continue -->
+

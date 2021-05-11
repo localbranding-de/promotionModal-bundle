@@ -1,0 +1,65 @@
+<!-- indexer::stop -->
+
+<div class="modal__overlay <!-- promo promo-newsletter -->" tabindex="-1" data-micromodal-close="">
+	<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+        
+		<header class="modal__header">
+			<div class="modal-header-wrapper">
+				<button class="modal__btn close" data-micromodal-close="" aria-label="Close this dialog window">
+					X
+				</button>
+			</div>
+        </header>
+        
+        <div class="modal__content" id="modal-1-content">
+        	<div class="modal-content-wrapper">
+				<div>
+					<h2 class="modal__title" id="modal-1-title">
+						Headline Text							<!-- if ..[FELD "promoTitle"] -->
+					</h2>
+					<div>
+						... bodytext.						<!-- if ..[FELD "promoDescription"] -->	
+					</div>	
+				</div>
+			
+				<section class="lb-contact-form last block">
+					<div class="ce_form block">
+						<form action="https://tools.localbranding.email/21/2787/febe6c1c9f/subscribe/form.html" method="post" id="kontaktformular">
+							<div class="formbody newsletter-sub">
+								<div class="form_border widget widget-text contactform_name mandatory form-group">
+
+									<div class="widget widget-email contactform_email mandatory form-group">
+										<label class="field_label required" for="email">
+											Email <span class="mandatory">*</span>
+										</label>
+										<input type="text" class="form-control" name="email" id="email" value="" placeholder="beispiel@adresse.de">
+									</div>
+
+									<div class="widget widget-checkbox contactform_privacy mandatory form-group">
+										<input type="checkbox" id="consent_text" name="consent_text" value="yes" class="checkbox custom-control-input">
+										<label Class="privacy-consent">
+											...text      <!-- ..[FELD "newsletterPrivacyConsent"] -->												
+										</label>
+									</div>
+
+									<div class="widget widget-submit contactform_submit form-group">
+										<input type="submit" class="button0 button1" value="Anmelden">  
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</section>
+			</div>
+		</div>
+		
+		<div class="modal__footer">
+			<div class="modal-footer-wrapper">
+				<p class="newsletter-hint">
+					...text    <!-- ..[FELD "newsletterHint"] -->			
+				</p>	
+        	</div>
+		</div>    
+	</div>
+</div>
+<!-- indexer::continue -->
