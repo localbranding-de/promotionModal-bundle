@@ -1,0 +1,12 @@
+#tl_navigation .tl_level_1_group .group-calendar_booking {
+    background: url(../icon/location.svg) left center no-repeat;
+    background-size: 16px;
+}	
+#tl_navigation .tl_level_1_group .group-lb_calculation {
+    background: url(../icon/calculation.svg) left center no-repeat;
+    background-size: 16px;	
+}
+#tl_navigation .tl_level_1_group .group-merconis {
+    background: url(../icon/merconis-shop.svg) left center no-repeat;
+    background-size: 16px;	
+}
