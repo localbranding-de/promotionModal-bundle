@@ -34,12 +34,7 @@
 	},
 	"autoload" : {
 		"psr-4" : {
-			"LocalbrandingDe\\BeDesignBundle\\" : "src/"
-		}
-	},
-	"autoload-dev" : {
-		"psr-4" : {
-			"LocalbrandingDe\\BeDesignBundle\\Tests\\" : "tests/"
+			"LocalbrandingDe\\PromotionModalBundle\\" : "src/"
 		}
 	},
 	"support" : {
