@@ -1,7 +1,8 @@
 <!-- indexer::stop -->
 
-<div class="modal__overlay <!-- promo promo-newsletter -->" tabindex="-1" data-micromodal-close="">
-	<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+<div class="micromodal-slide" id="modal-<?php echo($this->id)?>" aria-hidden="true" <?php echo($this->afterPageview)? 'pages="true"': 'pages="false"' ?> <?php echo($this->startStop) ? 'start="'.$this->start.'" stop="'.$this->stop.'"':'' ?> <?php echo($this->afterDuration)? 'duration="'.$this->afterDurationSec.'"': 'duration=""' ?>>
+<div class="modal__overlay" tabindex="-1" data-micromodal-close="">
+	<div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-<?php echo($this->id)?>-title">
         
 		<header class="modal__header">
 			<div class="modal-header-wrapper">
@@ -11,22 +12,21 @@
 			</div>
         </header>
         
-        <div class="modal__content" id="modal-1-content">
+        <div class="modal__content" id="modal-<?php echo($this->id)?>-content">
         	<div class="modal-content-wrapper">
 				<div>
-					<h2 class="modal__title" id="modal-1-title">
-						Headline Text							<!-- if ..[FELD "promoTitle"] -->
+					<h2 class="modal__title" id="modal-<?php echo($this->id)?>-title">
+								<?php echo($this->headline)?>
 					</h2>
 					<div>
-						... bodytext.						<!-- if ..[FELD "promoDescription"] -->	
+					<?php echo($this->promoDescription)?>						
 					</div>	
 				</div>
 			
 				<section class="lb-contact-form last block">
 					<div class="ce_form block">
-						<form action="https://tools.localbranding.email/21/2787/febe6c1c9f/subscribe/form.html" method="post" id="kontaktformular">
+						<form action="<?php echo($this->newsletterFormAction)?>" method="post" id="kontaktformular">
 							<div class="formbody newsletter-sub">
-								<div class="form_border widget widget-text contactform_name mandatory form-group">
 
 									<div class="widget widget-email contactform_email mandatory form-group">
 										<label class="field_label required" for="email">
@@ -38,7 +38,7 @@
 									<div class="widget widget-checkbox contactform_privacy mandatory form-group">
 										<input type="checkbox" id="consent_text" name="consent_text" value="yes" class="checkbox custom-control-input">
 										<label Class="privacy-consent">
-											...text      <!-- ..[FELD "newsletterPrivacyConsent"] -->												
+											<?php echo($this->newsletterPrivacyConsent)?>														
 										</label>
 									</div>
 
@@ -56,10 +56,11 @@
 		<div class="modal__footer">
 			<div class="modal-footer-wrapper">
 				<p class="newsletter-hint">
-					...text    <!-- ..[FELD "newsletterHint"] -->			
+				<?php echo($this->newsletterHint)?>				
 				</p>	
         	</div>
 		</div>    
 	</div>
 </div>
+
 <!-- indexer::continue -->
