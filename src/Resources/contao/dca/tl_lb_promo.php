@@ -23,7 +23,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
     // Palettes
     'palettes' => array
     (
-        'default'                     => '{typeAndDescription},promoTitle,promoDescription,promoTemplate,headline,bodytext;{promoButton}buttonLabel,buttonUrlBlog,buttonUrlExt,buttonProductDetail,buttonPageUrl,targetBlank;{promoNewsletterConsent},newsletterPrivacyConsent,newsletterHint;{publication},published,onPages,afterPageview,afterPageviewCount,afterDuration,afterDurationSec,bestBefore,start,stop'       
+        'default'                     => '{typeAndDescription},promoTitle,promoDescription,promoTemplate,headline,bodytext;{promoButton}buttonLabel,buttonUrlBlog,buttonUrlExt,buttonProductDetail,buttonPageUrl,targetBlank;{promoNewsletterSpecial},newsletterFormAction,newsletterPrivacyConsent,newsletterHint;{publication},onPages,afterPageview,afterDuration,bestBefore,start,stop,published'       
     ),
   
 
@@ -66,7 +66,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
             'inputType' => 'select',
             'exclude'   => true,
             'options_callback'      => ['tl_lb_promoClass', 'getPromoTemplates'],
-            'eval'      => array('includeBlankOption'=>true, 'chosen'=>true, 'tl_class'=>'w50'),
+            'eval'      => array('includeBlankOption'=>true, 'chosen'=>true, 'tl_class'=>'w50','mandatory'=>true),
             'sql'                   => "varchar(64) NOT NULL default ''"
         ),
 
@@ -102,6 +102,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                     ),
                     'inputType' => 'text',
                     'eval' => array('tl_class' => 'w50'),
+                    'sql'       => "varchar(256) NOT NULL default ''"
                 ),
                 
                 'buttonUrlExt' => array(
@@ -110,6 +111,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                     ),
                     'inputType' => 'text',
                     'eval' => array('tl_class' => 'w50'),
+                    'sql'       => "varchar(256) NOT NULL default ''"
                 ),
                 
                 'buttonProductDetail' => array(
@@ -170,6 +172,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                     }
                     return $values;
                     },
+                    'sql'       => "varchar(256) NOT NULL default ''"
                     ),
                     
 
@@ -182,6 +185,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                         'fieldType' => 'radio',
                         'tl_class' => 'w50'
                     ),
+                    'sql'       => "blob NOT NULL default ''"
                 ),
                 
                 'targetBlank' => array(
@@ -190,6 +194,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                     ),
                     'inputType' => 'checkbox',
                     'eval' => array('tl_class' => 'w50'),
+                    'sql'       => "char(1) NOT NULL default ''"
                 ),
           
               
@@ -197,7 +202,20 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         // ENDE BUTTON <--
         
         // ABSCHNITT Newsletter Zustimmung (promoNewsletterConsent)
-        
+        'newsletterFormAction' => array
+       (
+            'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['newsletterFormAction'],
+            'inputType' => 'text',  // OHNE TinyMCE
+            'eval'      => array('tl_class'=>'long','maxlength'=>255),
+            'sql'       => "varchar(256) NOT NULL default ''"
+        ),
+        'emailplaceholder' => array
+        (
+            'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['newsletterFormAction'],
+            'inputType' => 'text',  // OHNE TinyMCE
+            'eval'      => array('tl_class'=>'long','maxlength'=>255),
+            'sql'       => "varchar(256) NOT NULL default ''"
+        ),
         'newsletterPrivacyConsent' => array
         (
             'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['newsletterPrivacyConsent'],
@@ -227,8 +245,8 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
             'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['onPages'],
             'exclude' 		=> true,
             'inputType' 	=> 'pageTree',
-            'eval'      	=> array('tl_class'=>'clr wizard','fieldType'=>'checkbox',),
-            'sql'                   => 'varchar(256) NULL'
+            'eval'                    => array('tl_class'=>'clr wizard','multiple'=>true, 'fieldType'=>'checkbox', 'mandatory'=>true),
+            'sql'                   => 'blob NULL'
             
         ),
         
@@ -236,7 +254,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         (
             'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['afterPageviews'],
             'inputType' => 'checkbox',
-            'eval'      => array('tl_class'=>'w50'),
+            'eval'      => array('tl_class'=>'w50','submitOnChange'=>true),
             'sql'       => "char(1) NOT NULL default ''"
         ),
         
@@ -244,7 +262,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         (
             'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['afterPageviewCount'],
             'inputType' => 'text',
-            'eval'      => array('tl_class'=>'w50'),
+            'eval'      => array('tl_class'=>'long'),
             'sql'       => "int(10) unsigned NOT NULL default '0'"
         ),
         
@@ -252,7 +270,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         (
             'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['afterDuration'],
             'inputType' => 'checkbox',
-            'eval'      => array('tl_class'=>'w50'),
+            'eval'      => array('tl_class'=>'w50','submitOnChange'=>true),
             'sql'       => "char(1) NOT NULL default ''"
         ),
         
@@ -260,7 +278,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         (
             'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['afterDurationSec'],
             'inputType' => 'text',
-            'eval'      => array('tl_class'=>'w50'),
+            'eval'      => array('tl_class'=>'long'),
             'sql'       => "int(10) unsigned NOT NULL default '0'"
         ),
         
@@ -276,8 +294,8 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         (
             'label'              => &$GLOBALS['TL_LANG']['tl_lb_promo']['start'],
             'inputType'          => 'text',
-            'eval'               => array('tl_class'=>'w50'),
-            'sql'                => "int(10) unsigned NOT NULL default '0'"
+            'eval'               => array('rgxp'=>'datim', 'datepicker'=>true,'tl_class'=>'w50 wizard'),
+            'sql'                   => "varchar(10) NOT NULL default ''"
             
         ),
         
@@ -285,8 +303,8 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         (
             'label'              => &$GLOBALS['TL_LANG']['tl_lb_promo']['stop'],
             'inputType'          => 'text',
-            'eval'               => array('tl_class'=>'w50'),
-            'sql'                => "int(10) unsigned NOT NULL default '0'"
+            'eval'               => array('rgxp'=>'datim', 'datepicker'=>true,'tl_class'=>'w50 wizard'),
+            'sql'                   => "varchar(10) NOT NULL default ''"
         ),
         
 
@@ -329,6 +347,12 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
     
 );
 
+
+$GLOBALS['TL_DCA']['tl_lb_promo']['subpalettes']['afterDuration'] ='afterDurationSec';
+
+$GLOBALS['TL_DCA']['tl_lb_promo']['subpalettes']['afterPageview'] ='afterPageviewCount';
+$GLOBALS['TL_DCA']['tl_lb_promo']['palettes']['__selector__'][] = 'afterDuration';
+$GLOBALS['TL_DCA']['tl_lb_promo']['palettes']['__selector__'][] = 'afterPageview';
 class tl_lb_promoClass extends Backend
 {
     
