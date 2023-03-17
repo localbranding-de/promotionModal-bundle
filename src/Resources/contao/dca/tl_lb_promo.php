@@ -198,7 +198,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         ),
         'emailplaceholder' => array
         (
-            'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['newsletterFormAction'],
+            'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['emailplaceholder'],
             'inputType' => 'text',  // OHNE TinyMCE
             'eval'      => array('tl_class'=>'long','maxlength'=>255),
             'sql'       => "varchar(256) NOT NULL default ''"
