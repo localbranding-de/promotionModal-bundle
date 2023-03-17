@@ -128,8 +128,8 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                         + array_slice($input, $offset + $length, NULL, TRUE);
                     };
                     $values = array();
-                    $product = \Database::getinstance()->prepare("SELECT id,title,lsShopProductCode,lsShopProductPrice as price,lb_sellingUnit FROM tl_ls_shop_product WHERE published = ? ORDER BY lsShopProductCode ASC")->execute(1);
-                    $variant = \Database::getinstance()->prepare("SELECT tl_ls_shop_variant.id,tl_ls_shop_variant.lsShopVariantPrice as price,tl_ls_shop_variant.title, tl_ls_shop_variant.lb_sellingUnit,tl_ls_shop_variant.pid,tl_ls_shop_variant.lsShopVariantCode
+                    $product = \Database::getinstance()->prepare("SELECT id,title,lsShopProductCode,lsShopProductPrice as price FROM tl_ls_shop_product WHERE published = ? ORDER BY lsShopProductCode ASC")->execute(1);
+                    $variant = \Database::getinstance()->prepare("SELECT tl_ls_shop_variant.id,tl_ls_shop_variant.lsShopVariantPrice as price,tl_ls_shop_variant.title,tl_ls_shop_variant.pid,tl_ls_shop_variant.lsShopVariantCode
                     FROM tl_ls_shop_variant
                     LEFT JOIN tl_ls_shop_product ON tl_ls_shop_product.id=tl_ls_shop_variant.pid
                     WHERE tl_ls_shop_product.published = 1 AND tl_ls_shop_variant.published = 1 ORDER BY lsShopVariantCode DESC")->execute();
