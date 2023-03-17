@@ -3,7 +3,7 @@
 	"type" : "contao-bundle",
 	"description" : "Backend Design for Contao",
 	"license" : "LGPL-3.0-or-later",
-	"version" : "1.2",
+	"version" : "1.3",
 	"authors" : [{
 			"name" : "Localbranding-de",
 			"homepage" : "https://github.com/localbranding-de"
