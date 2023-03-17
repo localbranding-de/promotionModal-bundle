@@ -88,36 +88,28 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                
                     
                 'buttonLabel' => array(
-                    'label' => array(
-                        'de' => array('Button-Text', 'Bitte Text für den Button eingeben (Ziel-Optionen alternativ).'),
-                    ),
+                    'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['buttonLabel'],
                     'inputType' => 'text',
                     'eval' => array('tl_class' => 'w50'),
                     'sql'       => "varchar(256) NOT NULL default ''"
                 ),
 
                 'buttonUrlBlog' => array(
-                    'label' => array(
-                        'de' => array('Seite Blogbeitrag (URL)', 'Option: Interne URL eingeben, um auf einen Blogbeitrag zu verlinken.'),
-                    ),
+                    'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['buttonUrlBlog'],
                     'inputType' => 'text',
                     'eval' => array('tl_class' => 'w50'),
                     'sql'       => "varchar(256) NOT NULL default ''"
                 ),
                 
                 'buttonUrlExt' => array(
-                    'label' => array(
-                        'de' => array('Seite extern (URL)', 'Option: URL eingeben, um auf eine externe URL zu verlinken.'),
-                    ),
+                    'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['buttonUrlExt'],
                     'inputType' => 'text',
                     'eval' => array('tl_class' => 'w50'),
                     'sql'       => "varchar(256) NOT NULL default ''"
                 ),
                 
                 'buttonProductDetail' => array(
-                    'label' => array(
-                        'de' => array('Seite Produkt-Details', 'Option: Produkt auswählen, um auf eine Produkt-Detailseite zu verlinken.'),
-                    ),
+                    'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['buttonProductDetail'],
                     'inputType' => 'select',
                     'eval' => array('includeBlankOption' => true,'blankOptionLabel' => 'Produktseite auswählen...','tl_class' => 'w50'),
                     'options_callback' => function() {
@@ -177,9 +169,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                     
 
                 'buttonPageUrl' => array(
-                    'label' => array(
-                        'de' => array('Seite intern', 'Option: Seite im Seitenbaum auswählen, um auf eine Seite zu verlinken.'),
-                    ),
+                    'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['buttonPageUrl'],
                     'inputType' => 'pageTree',
                     'eval' => array(
                         'fieldType' => 'radio',
@@ -189,17 +179,14 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                 ),
                 
                 'targetBlank' => array(
-                    'label' => array(
-                        'de' => array('Im neuen Fenster öffnen', 'Bitte angeben, ob das Ziel in einem neuen Fenster geöffnet werden soll.'),
-                    ),
+                    'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['targetBlank'],
                     'inputType' => 'checkbox',
                     'eval' => array('tl_class' => 'w50'),
                     'sql'       => "char(1) NOT NULL default ''"
                 ),
           
               
-                            
-        // ENDE BUTTON <--
+
         
         // ABSCHNITT Newsletter Zustimmung (promoNewsletterConsent)
         'newsletterFormAction' => array
@@ -252,7 +239,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         
         'afterPageview' => array
         (
-            'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['afterPageviews'],
+            'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['afterPageview'],
             'inputType' => 'checkbox',
             'eval'      => array('tl_class'=>'w50','submitOnChange'=>true),
             'sql'       => "char(1) NOT NULL default ''"
@@ -286,7 +273,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
         (
             'label'     => &$GLOBALS['TL_LANG']['tl_lb_promo']['bestBefore'],
             'inputType' => 'text',
-            'eval'      => array('tl_class'=>'w50'),
+            'eval'      => array('tl_class'=>'long'),
             'sql'       => "int(10) unsigned NOT NULL default '0'"
         ),
         
