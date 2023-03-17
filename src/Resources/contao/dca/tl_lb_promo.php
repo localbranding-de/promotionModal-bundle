@@ -175,7 +175,7 @@ $GLOBALS['TL_DCA']['tl_lb_promo'] = array
                         'fieldType' => 'radio',
                         'tl_class' => 'w50'
                     ),
-                    'sql'       => "blob NOT NULL default ''"
+                    'sql'       => "blob NULL "
                 ),
                 
                 'targetBlank' => array(
